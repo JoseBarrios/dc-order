@@ -4,10 +4,6 @@ const Multiple = require('aggregation/es6')
 
 class Order extends Multiple(Thing, Intangible) {
 
-  static sayHi(){
-    console.log('Hello, world!')
-  }
-
   constructor(model){
     model = model || {};
     super(model);
@@ -34,124 +30,124 @@ class Order extends Multiple(Thing, Intangible) {
     this.seller = model.seller;
   }
 
-  get acceptedOffer(){ return this.model.acceptedOffer; }
+  get acceptedOffer(){ return this.computed.acceptedOffer; }
   set acceptedOffer(value){
     if(!value) return;
-    this.model.acceptedOffer = value;
+    this.computed.acceptedOffer = value;
   }
 
-  get billingAddress(){ return this.model.billingAddress; }
+  get billingAddress(){ return this.computed.billingAddress; }
   set billingAddress(value){
     if(!value) return;
-    this.model.billingAddress = value;
+    this.computed.billingAddress = value;
   }
 
-  get broker(){ return this.model.broker; }
+  get broker(){ return this.computed.broker; }
   set broker(value){
     if(!value) return;
-    this.model.broker = value;
+    this.computed.broker = value;
   }
 
-  get confirmationNumber(){ return this.model.confirmationNumber; }
+  get confirmationNumber(){ return this.computed.confirmationNumber; }
   set confirmationNumber(value){
     if(!value) return;
-    this.model.confirmationNumber = value;
+    this.computed.confirmationNumber = value;
   }
 
-  get customer(){ return this.model.customer; }
+  get customer(){ return this.computed.customer; }
   set customer(value){
     if(!value) return;
-    this.model.customer = value;
+    this.computed.customer = value;
   }
 
-  get discount(){ return this.model.discount; }
+  get discount(){ return this.computed.discount; }
   set discount(value){
     if(!value) return;
-    this.model.discount = value;
+    this.computed.discount = value;
   }
 
-  get discountCode(){ return this.model.discountCode; }
+  get discountCode(){ return this.computed.discountCode; }
   set discountCode(value){
     if(!value) return;
-    this.model.discountCode = value;
+    this.computed.discountCode = value;
   }
 
-  get discountCurrency(){ return this.model.discountCurrency; }
+  get discountCurrency(){ return this.computed.discountCurrency; }
   set discountCurrency(value){
     if(!value) return;
-    this.model.discountCurrency = value;
+    this.computed.discountCurrency = value;
   }
 
-  get isGift(){ return this.model.isGift; }
+  get isGift(){ return this.computed.isGift; }
   set isGift(value){
     if(!value) return;
-    this.model.isGift = value;
+    this.computed.isGift = value;
   }
 
-  get orderDate(){ return this.model.orderDate; }
+  get orderDate(){ return this.computed.orderDate; }
   set orderDate(value){
     if(!value) return;
-    this.model.orderDate = value;
+    this.computed.orderDate = value;
   }
 
-  get orderDelivery(){ return this.model.orderDelivery; }
+  get orderDelivery(){ return this.computed.orderDelivery; }
   set orderDelivery(value){
     if(!value) return;
-    this.model.orderDelivery = value;
+    this.computed.orderDelivery = value;
   }
 
-  get orderNumber(){ return this.model.orderNumber; }
+  get orderNumber(){ return this.computed.orderNumber; }
   set orderNumber(value){
     if(!value) return;
-    this.model.orderNumber = value;
+    this.computed.orderNumber = value;
   }
 
-  get orderStatus(){ return this.model.orderStatus; }
+  get orderStatus(){ return this.computed.orderStatus; }
   set orderStatus(value){
     if(!value) return;
-    this.model.orderStatus = value;
+    this.computed.orderStatus = value;
   }
 
-  get orderedItem(){ return this.model.orderedItem; }
+  get orderedItem(){ return this.computed.orderedItem; }
   set orderedItem(value){
     if(!value) return;
-    this.model.orderedItem = value;
+    this.computed.orderedItem = value;
   }
 
-  get partOfInvoice(){ return this.model.partOfInvoice; }
+  get partOfInvoice(){ return this.computed.partOfInvoice; }
   set partOfInvoice(value){
     if(!value) return;
-    this.model.partOfInvoice = value;
+    this.computed.partOfInvoice = value;
   }
 
-  get paymentDueDate(){ return this.model.paymentDueDate; }
+  get paymentDueDate(){ return this.computed.paymentDueDate; }
   set paymentDueDate(value){
     if(!value) return;
-    this.model.paymentDueDate = value;
+    this.computed.paymentDueDate = value;
   }
 
-  get paymentMethod(){ return this.model.paymentMethod; }
+  get paymentMethod(){ return this.computed.paymentMethod; }
   set paymentMethod(value){
     if(!value) return;
-    this.model.paymentMethod = value;
+    this.computed.paymentMethod = value;
   }
 
-  get paymentMethodId(){ return this.model.paymentMethodId; }
+  get paymentMethodId(){ return this.computed.paymentMethodId; }
   set paymentMethodId(value){
     if(!value) return;
-    this.model.paymentMethodId = value;
+    this.computed.paymentMethodId = value;
   }
 
-  get paymentUrl(){ return this.model.paymentUrl; }
+  get paymentUrl(){ return this.computed.paymentUrl; }
   set paymentUrl(value){
     if(!value) return;
-    this.model.paymentUrl = value;
+    this.computed.paymentUrl = value;
   }
 
-  get seller(){ return this.model.seller; }
+  get seller(){ return this.computed.seller; }
   set seller(value){
     if(!value) return;
-    this.model.seller = value;
+    this.computed.seller = value;
   }
 
 }

@@ -18,6 +18,7 @@ describe('Order.isNumber', function() {
 
 describe('Order.keys', function() {
 	it('should inheret Thing static method keys', function() {
+    console.log(Order.keys(order))
 		assert.equal(Order.keys(order), true);
 	});
 });

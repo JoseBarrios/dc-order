@@ -1,6 +1,7 @@
 'use strict'
 
 var assert = require('assert');
+var Intangible = require('@josebarrios/intangible')
 var Order = require('../index.js');
 
 var model = {};
@@ -18,5 +19,11 @@ describe('Order.isNumber', function() {
 describe('Order.keys', function() {
 	it('should inheret Thing static method keys', function() {
 		assert.equal(Order.keys(order), true);
+	});
+});
+
+describe('Order.assignedProperties', function() {
+	it('should inheret Thing static method assignedProperties', function() {
+		assert.equal(Order.assignedProperties(order), true);
 	});
 });

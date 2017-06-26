@@ -2,6 +2,10 @@ const Intangible = require('@josebarrios/intangible');
 
 class Order extends Intangible {
 
+  static sayHi(){
+    console.log('Hello, world!')
+  }
+
   constructor(model){
     model = model || {};
     super(model);

@@ -1,12 +1,66 @@
 const Thing = require('@josebarrios/thing')
 const Intangible = require('@josebarrios/intangible');
 const Multiple = require('aggregation/es6')
+
+class OrderItem extends Multiple(Thing, Intangible) {
+
+  static get type(){ return 'OrderItem'; }
+
+  constructor(model){
+    model = model || {};
+    super(model);
+
+    this.orderDelivery = model.orderDelivery;
+    this.orderItemNumber = model.orderItemNumber;
+    this.orderItemStatus = model.orderItemStatus;
+    this.orderQuantity = model.orderQuantity;
+    this.orderedItem = model.orderedItem;
+    //Non standard
+    this.price = model.price;
+  }
+
+  get type(){ return 'OrderItem'; }
+  set type(value) {}
+
+  get orderDelivery(){ return this.computed.orderDelivery; }
+  set orderDelivery(value){
+    this.computed.orderDelivery = value;
+  }
+
+  get orderItemNumber(){ return this.computed.orderItemNumber; }
+  set orderItemNumber(value){
+    this.computed.orderItemNumber = value;
+  }
+
+  get orderItemStatus(){ return this.computed.orderItemStatus; }
+  set orderItemStatus(value){
+    this.computed.orderItemStatus = value;
+  }
+
+  get orderQuantity(){ return this.computed.orderQuantity; }
+  set orderQuantity(value){
+    this.computed.orderQuantity = value;
+  }
+
+  get orderedItem(){ return this.computed.orderedItem; }
+  set orderedItem(value){
+    this.computed.orderedItem = value;
+  }
+
+  get price(){ return this.computed.price; }
+  set price(value){
+    this.computed.price = value;
+  }
+
+
+}
+
 const Type = 'Order';
 const Empty = '';
-
 class Order extends Multiple(Thing, Intangible) {
 
   static get type(){ return TYPE; }
+  static get OrderItem(){ return OrderItem; }
 
   constructor(model){
     model = model || {};
@@ -104,7 +158,17 @@ class Order extends Multiple(Thing, Intangible) {
 
   get orderedItem(){ return this.computed.orderedItem; }
   set orderedItem(value){
-    this.computed.orderedItem = value;
+    //Make sure it is set
+    if(!this.computed.orderedItem){
+      this.computed.orderedItem = [];
+    }
+
+    if(OrderItem.isArray(this.computed.orderItem)){
+      this.computed.orderedItem.push(value);
+    } else if(!OrderItem.isEmpty(value)) {
+      this.computed.orderedItem = [];
+      this.computed.orderedItem.push(value);
+    }
   }
 
   get partOfInvoice(){ return this.computed.partOfInvoice; }

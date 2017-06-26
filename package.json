@@ -1,6 +1,6 @@
 {
   "name": "@josebarrios/order",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Order class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {

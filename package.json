@@ -24,6 +24,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@josebarrios/intangible": "^0.1.0"
+    "@josebarrios/intangible": "^0.1.0",
+    "aggregation": "^1.2.0"
   }
 }

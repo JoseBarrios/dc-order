@@ -1,6 +1,8 @@
+const Thing = require('@josebarrios/thing')
 const Intangible = require('@josebarrios/intangible');
+const Multiple = require('aggregation/es6')
 
-class Order extends Intangible {
+class Order extends Multiple(Thing, Intangible) {
 
   static sayHi(){
     console.log('Hello, world!')

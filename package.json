@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@josebarrios/intangible": "^0.1.0",
+    "@josebarrios/thing": "^0.3.19",
     "aggregation": "^1.2.0"
   }
 }

@@ -16,7 +16,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
     this.orderQuantity = model.orderQuantity;
     this.orderedItem = model.orderedItem;
     //Non standard
-    this.price = model.price;
+    this.orderPrice = model.orderPrice;
   }
 
   get type(){ return 'OrderItem'; }
@@ -47,9 +47,9 @@ class OrderItem extends Multiple(Thing, Intangible) {
     this.computed.orderedItem = value;
   }
 
-  get price(){ return this.computed.price; }
-  set price(value){
-    this.computed.price = value;
+  get orderPrice(){ return this.computed.orderPrice; }
+  set orderPrice(value){
+    this.computed.orderPrice = value;
   }
 
 
@@ -185,10 +185,16 @@ class Order extends Multiple(Thing, Intangible) {
     this.computed.paymentMethodId = value;
   }
 
-  get paymentUrl(){ return this.computed.paymentUrl; }
+  get paymentUrl(){ return this.computed.paymentURL; }
   set paymentUrl(value){
-    this.computed.paymentUrl = value;
+    this.computed.paymentURL = value;
   }
+
+  get paymentURL(){ return this.computed.paymentURL; }
+  set paymentURL(value){
+    this.computed.paymentURL = value;
+  }
+
 
   get seller(){ return this.computed.seller; }
   set seller(value){

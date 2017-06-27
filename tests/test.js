@@ -37,8 +37,9 @@ describe('Order.OrderItem', function() {
 	});
 });
 
-describe('Order.OrderItem', function() {
+describe('order.orderedItem', function() {
 	it('should return OrderItem class', function() {
+    assert.equal(Order.isEmpty([]), true)
     var model = {};
     model.orderItemNumber = 1;
     let orderItem = new Order.OrderItem(model)

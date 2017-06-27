@@ -16,7 +16,8 @@ class OrderItem extends Multiple(Thing, Intangible) {
     this.orderQuantity = model.orderQuantity;
     this.orderedItem = model.orderedItem;
     //Non standard
-    this.orderPrice = model.orderPrice;
+    this.price = model.price;
+    this.priceCurrency = model.priceCurrency || 'USD';
   }
 
   get type(){ return 'OrderItem'; }
@@ -43,15 +44,20 @@ class OrderItem extends Multiple(Thing, Intangible) {
   }
 
   get orderedItem(){ return this.computed.orderedItem; }
-  set orderedItem(value){
-    this.computed.orderedItem = value;
-  }
+  set orderedItem(value){ this.computed.orderedItem = value; }
 
-  get orderPrice(){ return this.computed.orderPrice; }
-  set orderPrice(value){
-    this.computed.orderPrice = value;
-  }
+  //NON-STANDARD
+  get price(){ return this.computed.price; }
+  set price(value){ this.computed.price = value; }
 
+  get priceCurrency() { return this.computed.priceCurrency}
+  set priceCurrency(value){ this.computed.priceCurrency = value; }
+
+  set total(value){}
+  get total(){ return this.computed.price * this.computed.orderQuantity }
+
+  formattedPrice(){ return `$${(this.price/100).toFixed(2)} ${this.priceCurrency}`; }
+  formattedTotal(){ return `$${(this.total/100).toFixed(2)} ${this.priceCurrency}`; }
 
 }
 
@@ -200,6 +206,7 @@ class Order extends Multiple(Thing, Intangible) {
   set seller(value){
     this.computed.seller = value;
   }
+
 }
 
 module.exports = Order;

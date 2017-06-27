@@ -47,6 +47,7 @@ describe('Order.OrderItem', function() {
     assert.deepEqual(order.orderedItem, [one]);
 
     model.orderItemNumber = 2;
+    model.description = 'two'
     let orderItem2 = new Order.OrderItem(model)
     let two = Order.assignedProperties(orderItem2);
     order.orderedItem.push(two);

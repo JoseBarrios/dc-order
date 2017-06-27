@@ -162,13 +162,9 @@ class Order extends Multiple(Thing, Intangible) {
     if(!this.computed.orderedItem){
       this.computed.orderedItem = [];
     }
-
-    if(OrderItem.isArray(this.computed.orderItem)){
-      this.computed.orderedItem.push(value);
-    } else if(!OrderItem.isEmpty(value)) {
-      this.computed.orderedItem = [];
-      this.computed.orderedItem.push(value);
-    }
+    if(OrderItem.isArray(value)){
+      this.computed.orderItem = value;
+    } else { console.error('orderedItem must be of type Array') }
   }
 
   get partOfInvoice(){ return this.computed.partOfInvoice; }

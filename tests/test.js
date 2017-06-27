@@ -42,15 +42,7 @@ describe('Order.OrderItem', function() {
     var model = {};
     model.orderItemNumber = 1;
     let orderItem = new Order.OrderItem(model)
-    let one = Order.assignedProperties(orderItem);
-    order.orderedItem.push(one);
-    assert.deepEqual(order.orderedItem, [one]);
-
-    model.orderItemNumber = 2;
-    model.description = 'two'
-    let orderItem2 = new Order.OrderItem(model)
-    let two = Order.assignedProperties(orderItem2);
-    order.orderedItem.push(two);
-		assert.deepEqual(order.orderedItem, [one, two]);
+    order.orderedItem = [Order.assignedProperties(orderItem)];
+    assert.deepEqual(order.orderedItem, [Order.assignedProperties(orderItem)]);
 	});
 });

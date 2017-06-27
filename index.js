@@ -159,7 +159,7 @@ class Order extends Multiple(Thing, Intangible) {
   get orderedItem(){ return this.computed.orderedItem; }
   set orderedItem(value){
     if(OrderItem.isArray(value)){
-      this.computed.orderItem = value;
+      this.computed.orderedItem = value;
     } else { console.error('orderedItem must be of type Array') }
   }
 

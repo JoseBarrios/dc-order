@@ -70,7 +70,7 @@ describe('Order.OrderItem.totalFormatted', function() {
     assert.equal(orderItem.totalFormatted(), '250.00')
     assert.equal(orderItem.totalFormatted('$'), '$250.00')
     assert.equal(orderItem.totalFormatted('', 'USD'), '250.00USD')
-    assert.equal(orderItem.totalFormatted('$', 'USD'), '$250.00USD')
+    assert.equal(orderItem.totalFormatted('$', 'USD'), '250.00USD')
 	});
 });
 

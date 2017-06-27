@@ -63,10 +63,13 @@ class OrderItem extends Multiple(Thing, Intangible) {
   //
   // //////////////////
   priceFormatted(symbol='', currency=''){
-    return `${symbol}${(this.price/100).toFixed(2)}${currency}`;
+    let amount = `${symbol}${(this.price/100).toFixed(2)}${currency}`;
+    return amount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
   }
   totalFormatted(symbol='', currency=''){
-    return `${symbol}${(this.total/100).toFixed(2)}${currency}`; }
+    let amount = `${symbol}${(this.total/100).toFixed(2)}${currency}`;
+    return amount.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+  }
 
 }
 

@@ -38,7 +38,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
     this.computed.orderItemStatus = value;
   }
 
-  get orderQuantity(){ return this.computed.orderQuantity; }
+  get orderQuantity(){ return Number(this.computed.orderQuantity); }
   set orderQuantity(value){
     this.computed.orderQuantity = Number(value);
   }
@@ -56,10 +56,55 @@ class OrderItem extends Multiple(Thing, Intangible) {
   set total(value){}
   get total(){ return this.computed.price * this.computed.orderQuantity }
 
-  priceFormatted(){ return `$${(this.price/100).toFixed(2)} ${this.priceCurrency}`; }
-  totalFormatted(){ return `$${(this.total/100).toFixed(2)} ${this.priceCurrency}`; }
+
+  //////////////////////
+  //
+  // INSTANCE METHODS
+  //
+  // //////////////////
+  priceFormatted(symbol='', currency=''){
+    return `${symbol}${(this.price/100).toFixed(2)}${currency}`;
+  }
+  totalFormatted(symbol='', currency=''){
+    return `${symbol}${(this.total/100).toFixed(2)}${currency}`; }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Type = 'Order';
 const Empty = '';

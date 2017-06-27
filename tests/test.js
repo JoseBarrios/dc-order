@@ -64,18 +64,24 @@ describe('Order.OrderItem.itemTotal', function() {
 describe('Order.OrderItem.totalFormatted', function() {
 	it('should return the item total in human readable format', function() {
     var model = {};
-    model.price = '2500';
-    model.orderQuantity = '10';
     let orderItem = new Order.OrderItem(model)
-    assert.equal(orderItem.totalFormatted(), '$250.00 USD')
+    orderItem.price = '2500';
+    orderItem.orderQuantity = '10';
+    assert.equal(orderItem.totalFormatted(), '250.00')
+    assert.equal(orderItem.totalFormatted('$'), '$250.00')
+    assert.equal(orderItem.totalFormatted('', 'USD'), '250.00USD')
+    assert.equal(orderItem.totalFormatted('$', 'USD'), '$250.00USD')
 	});
 });
 
 describe('Order.OrderItem.priceFormatted', function() {
 	it('should return the price in human readable format', function() {
     var model = {};
-    model.price = 2500;
+    model.price = 2100;
     let orderItem = new Order.OrderItem(model)
-    assert.equal(orderItem.priceFormatted(), '$25.00 USD')
+    assert.equal(orderItem.priceFormatted(), '21.00')
+    //assert.equal(orderItem.priceFormatted('$'), '$21.00')
+    //assert.equal(orderItem.priceFormatted('','USD'), '21.00 USD')
+    //assert.equal(orderItem.priceFormatted('$','USD'), '$21.00 USD')
 	});
 });

@@ -56,8 +56,8 @@ class OrderItem extends Multiple(Thing, Intangible) {
   set total(value){}
   get total(){ return this.computed.price * this.computed.orderQuantity }
 
-  formattedPrice(){ return `$${(this.price/100).toFixed(2)} ${this.priceCurrency}`; }
-  formattedTotal(){ return `$${(this.total/100).toFixed(2)} ${this.priceCurrency}`; }
+  priceFormatted(){ return `$${(this.price/100).toFixed(2)} ${this.priceCurrency}`; }
+  totalFormatted(){ return `$${(this.total/100).toFixed(2)} ${this.priceCurrency}`; }
 
 }
 

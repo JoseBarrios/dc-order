@@ -61,21 +61,21 @@ describe('Order.OrderItem.itemTotal', function() {
 	});
 });
 
-describe('Order.OrderItem.formattedTotal', function() {
+describe('Order.OrderItem.totalFormatted', function() {
 	it('should return the item total in human readable format', function() {
     var model = {};
     model.price = 2500;
     model.orderQuantity = 10;
     let orderItem = new Order.OrderItem(model)
-    assert.equal(orderItem.formattedTotal(), '$250.00 USD')
+    assert.equal(orderItem.totalFormatted(), '$250.00 USD')
 	});
 });
 
-describe('Order.OrderItem.formattedPrice', function() {
+describe('Order.OrderItem.priceFormatted', function() {
 	it('should return the price in human readable format', function() {
     var model = {};
     model.price = 2500;
     let orderItem = new Order.OrderItem(model)
-    assert.equal(orderItem.formattedPrice(), '$25.00 USD')
+    assert.equal(orderItem.priceFormatted(), '$25.00 USD')
 	});
 });

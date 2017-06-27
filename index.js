@@ -158,10 +158,6 @@ class Order extends Multiple(Thing, Intangible) {
 
   get orderedItem(){ return this.computed.orderedItem; }
   set orderedItem(value){
-    //Make sure it is set
-    if(!this.computed.orderedItem){
-      this.computed.orderedItem = [];
-    }
     if(OrderItem.isArray(value)){
       this.computed.orderItem = value;
     } else { console.error('orderedItem must be of type Array') }

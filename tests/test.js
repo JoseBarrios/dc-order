@@ -64,8 +64,8 @@ describe('Order.OrderItem.itemTotal', function() {
 describe('Order.OrderItem.totalFormatted', function() {
 	it('should return the item total in human readable format', function() {
     var model = {};
-    model.price = 2500;
-    model.orderQuantity = 10;
+    model.price = '2500';
+    model.orderQuantity = '10';
     let orderItem = new Order.OrderItem(model)
     assert.equal(orderItem.totalFormatted(), '$250.00 USD')
 	});

@@ -40,7 +40,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
   get orderQuantity(){ return this.computed.orderQuantity; }
   set orderQuantity(value){
-    this.computed.orderQuantity = value;
+    this.computed.orderQuantity = Number(value);
   }
 
   get orderedItem(){ return this.computed.orderedItem; }
@@ -48,7 +48,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
   //NON-STANDARD
   get price(){ return this.computed.price; }
-  set price(value){ this.computed.price = value; }
+  set price(value){ this.computed.price = Number(value); }
 
   get priceCurrency() { return this.computed.priceCurrency}
   set priceCurrency(value){ this.computed.priceCurrency = value; }

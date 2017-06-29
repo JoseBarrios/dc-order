@@ -20,9 +20,6 @@ class OrderItem extends Multiple(Thing, Intangible) {
     this.priceCurrency = model.priceCurrency || 'USD';
   }
 
-  get type(){ return 'OrderItem'; }
-  set type(value) {}
-
   get orderDelivery(){ return this.computed.orderDelivery; }
   set orderDelivery(value){
     this.computed.orderDelivery = value;
@@ -40,7 +37,8 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
   get orderQuantity(){ return Number(this.computed.orderQuantity); }
   set orderQuantity(value){
-    this.computed.orderQuantity = Number(value);
+    if(OrderItem.isString(value)){ this.computed.orderQuantity = Number(value); }
+    else if( OrderItem.isNumber(value)){ this.computed.orderQuantity = value; }
   }
 
   get orderedItem(){ return this.computed.orderedItem; }
@@ -48,7 +46,10 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
   //NON-STANDARD
   get price(){ return this.computed.price; }
-  set price(value){ this.computed.price = Number(value); }
+  set price(value){
+    if(OrderItem.isString(value)){ this.computed.price = Number(value); }
+    else if( OrderItem.isNumber(value)){ this.computed.price = value; }
+  }
 
   get priceCurrency() { return this.computed.priceCurrency}
   set priceCurrency(value){ this.computed.priceCurrency = value; }
@@ -141,9 +142,6 @@ class Order extends Multiple(Thing, Intangible) {
     this.paymentURL = model.paymentURL || model.paymentUrl;
     this.seller = model.seller;
   }
-
-  get type(){ return TYPE; }
-  set type(value) {}
 
   get acceptedOffer(){ return this.computed.acceptedOffer; }
   set acceptedOffer(value){

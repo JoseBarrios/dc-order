@@ -213,7 +213,10 @@ class Order extends Multiple(Thing, Intangible) {
     if(OrderItem.isEmpty(value)){
       this.computed.orderedItem = [];
     } else if(OrderItem.isArray(value)){
-      this.computed.orderedItem = value;
+      this.computed.orderedItem = [];
+      value.forEach((model, index) => {
+        this.computed.orderedItem[index] = new OrderItem(model)
+      })
     } else { console.error('orderedItem must be of type Array') }
   }
 

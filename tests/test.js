@@ -7,6 +7,7 @@ var Order = require('../index.js');
 var model = {};
 model.name = 'jose';
 model.orderNumber = 1234;
+model.orderedItem = [{price:1000, orderQuantity: 3}]
 let order = new Order(model);
 
 
@@ -41,12 +42,11 @@ describe('Order.OrderItem', function() {
 });
 
 describe('order.orderedItem', function() {
-	it('should return OrderItem class', function() {
-    var model = {};
-    model.orderItemNumber = 1;
-    let orderItem = new Order.OrderItem(model)
-    order.orderedItem = [Order.assignedProperties(orderItem)];
-    assert.deepEqual(order.orderedItem, [Order.assignedProperties(orderItem)]);
+	it('should return OrderItem class results', function() {
+    assert.equal(order.orderedItem[0].price, 1000);
+    assert.equal(order.orderedItem[0].orderQuantity, 3);
+    assert.equal(order.orderedItem[0].priceFormatted('$'), '$10.00');
+    assert.equal(order.orderedItem[0].totalFormatted('$'), '$30.00');
 	});
 });
 

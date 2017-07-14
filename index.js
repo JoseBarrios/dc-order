@@ -6,6 +6,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
   static get type(){ return 'OrderItem'; }
 
+
   constructor(model){
     model = model || {};
     super(model);
@@ -116,6 +117,45 @@ class Order extends Multiple(Thing, Intangible) {
 
   static get type(){ return TYPE; }
   static get OrderItem(){ return OrderItem; }
+
+  static assignedProperties(order, format='object'){
+    format = format.toLowerCase();
+    var assignedProperties = null;
+
+    switch(format){
+
+      case 'array':
+        assignedProperties = [];
+        Thing.utils.forIn(order.computed, (value, key) => {
+          if(!Thing.isEmpty(value)){
+            assignedProperties.push(key);
+          }
+        })
+        break;
+
+      case 'object':
+        assignedProperties = {};
+        Thing.utils.forIn(order.computed, (value, key) => {
+          if(!Thing.isEmpty(value)){
+            assignedProperties[key] = value;
+          }
+          if(key === 'orderedItem'){
+            value.forEach((orderedItem, index) => {
+              assignedProperties[key][index] = Thing.assignedProperties(orderedItem)
+            })
+          }
+        })
+        break;
+
+      default:
+        console.log('assignedProperties format not supported')
+    }
+
+    return assignedProperties;
+  }
+
+
+
 
   constructor(model){
     model = model || {};

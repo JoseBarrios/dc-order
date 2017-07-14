@@ -26,7 +26,8 @@ describe('Order.keys', function() {
 
 describe('Order.assignedProperties', function() {
 	it('should inheret Thing static method assignedProperties', function() {
-		assert.equal(Order.assignedProperties(order).name, 'jose');
+		//assert.equal(Order.assignedProperties(order).name, 'jose');
+		assert.deepEqual(Order.assignedProperties(order).orderedItem[0].price, model.orderedItem[0].price);
 	});
 });
 
@@ -45,8 +46,8 @@ describe('order.orderedItem', function() {
 	it('should return OrderItem class results', function() {
     assert.equal(order.orderedItem[0].price, 1000);
     assert.equal(order.orderedItem[0].orderQuantity, 3);
-    assert.equal(order.orderedItem[0].priceFormatted('$'), '$10.00');
-    assert.equal(order.orderedItem[0].totalFormatted('$'), '$30.00');
+    assert.equal(new Order.OrderItem(order.orderedItem[0]).priceFormatted('$'), '$10.00');
+    assert.equal(new Order.OrderItem(order.orderedItem[0]).totalFormatted('$'), '$30.00');
 	});
 });
 

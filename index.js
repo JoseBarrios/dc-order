@@ -1,8 +1,6 @@
-const Thing = require('@josebarrios/thing')
 const Intangible = require('@josebarrios/intangible');
-const Multiple = require('aggregation/es6')
 
-class OrderItem extends Multiple(Thing, Intangible) {
+class OrderItem extends Intangible {
 
   static get type(){ return 'OrderItem'; }
 
@@ -113,7 +111,7 @@ class OrderItem extends Multiple(Thing, Intangible) {
 
 const Type = 'Order';
 const Empty = '';
-class Order extends Multiple(Thing, Intangible) {
+class Order extends Intangible {
 
   static get type(){ return TYPE; }
   static get OrderItem(){ return OrderItem; }
@@ -126,8 +124,8 @@ class Order extends Multiple(Thing, Intangible) {
 
       case 'array':
         assignedProperties = [];
-        Thing.utils.forIn(order.computed, (value, key) => {
-          if(!Thing.isEmpty(value)){
+        Intangible.utils.forIn(order.computed, (value, key) => {
+          if(!Intangible.isEmpty(value)){
             assignedProperties.push(key);
           }
         })
@@ -135,13 +133,13 @@ class Order extends Multiple(Thing, Intangible) {
 
       case 'object':
         assignedProperties = {};
-        Thing.utils.forIn(order.computed, (value, key) => {
-          if(!Thing.isEmpty(value)){
+        Intangible.utils.forIn(order.computed, (value, key) => {
+          if(!Intangible.isEmpty(value)){
             assignedProperties[key] = value;
           }
           if(key === 'orderedItem'){
             value.forEach((orderedItem, index) => {
-              assignedProperties[key][index] = Thing.assignedProperties(orderedItem)
+              assignedProperties[key][index] = Intangible.assignedProperties(orderedItem)
             })
           }
         })

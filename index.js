@@ -1,4 +1,4 @@
-const Intangible = require('@josebarrios/intangible');
+const Intangible = require('dc-intangible');
 
 class OrderItem extends Intangible {
 
@@ -19,42 +19,42 @@ class OrderItem extends Intangible {
     this.priceCurrency = model.priceCurrency || 'USD';
   }
 
-  get orderDelivery(){ return this.computed.orderDelivery; }
+  get orderDelivery(){ return this.model.orderDelivery; }
   set orderDelivery(value){
-    this.computed.orderDelivery = value;
+    this.model.orderDelivery = value;
   }
 
-  get orderItemNumber(){ return this.computed.orderItemNumber; }
+  get orderItemNumber(){ return this.model.orderItemNumber; }
   set orderItemNumber(value){
-    this.computed.orderItemNumber = value;
+    this.model.orderItemNumber = value;
   }
 
-  get orderItemStatus(){ return this.computed.orderItemStatus; }
+  get orderItemStatus(){ return this.model.orderItemStatus; }
   set orderItemStatus(value){
-    this.computed.orderItemStatus = value;
+    this.model.orderItemStatus = value;
   }
 
-  get orderQuantity(){ return Number(this.computed.orderQuantity); }
+  get orderQuantity(){ return Number(this.model.orderQuantity); }
   set orderQuantity(value){
-    if(OrderItem.isString(value)){ this.computed.orderQuantity = Number(value); }
-    else if( OrderItem.isNumber(value)){ this.computed.orderQuantity = value; }
+    if(OrderItem.isString(value)){ this.model.orderQuantity = Number(value); }
+    else if( OrderItem.isNumber(value)){ this.model.orderQuantity = value; }
   }
 
-  get orderedItem(){ return this.computed.orderedItem; }
-  set orderedItem(value){ this.computed.orderedItem = value; }
+  get orderedItem(){ return this.model.orderedItem; }
+  set orderedItem(value){ this.model.orderedItem = value; }
 
   //NON-STANDARD
-  get price(){ return this.computed.price; }
+  get price(){ return this.model.price; }
   set price(value){
-    if(OrderItem.isString(value)){ this.computed.price = Number(value); }
-    else if( OrderItem.isNumber(value)){ this.computed.price = value; }
+    if(OrderItem.isString(value)){ this.model.price = Number(value); }
+    else if( OrderItem.isNumber(value)){ this.model.price = value; }
   }
 
-  get priceCurrency() { return this.computed.priceCurrency}
-  set priceCurrency(value){ this.computed.priceCurrency = value; }
+  get priceCurrency() { return this.model.priceCurrency}
+  set priceCurrency(value){ this.model.priceCurrency = value; }
 
   set total(value){}
-  get total(){ return this.computed.price * this.computed.orderQuantity }
+  get total(){ return this.model.price * this.model.orderQuantity }
 
 
   //////////////////////
@@ -124,7 +124,7 @@ class Order extends Intangible {
 
       case 'array':
         assignedProperties = [];
-        Intangible.utils.forIn(order.computed, (value, key) => {
+        Intangible.utils.forIn(order.model, (value, key) => {
           if(!Intangible.isEmpty(value)){
             assignedProperties.push(key);
           }
@@ -133,7 +133,7 @@ class Order extends Intangible {
 
       case 'object':
         assignedProperties = {};
-        Intangible.utils.forIn(order.computed, (value, key) => {
+        Intangible.utils.forIn(order.model, (value, key) => {
           if(!Intangible.isEmpty(value)){
             assignedProperties[key] = value;
           }
@@ -181,117 +181,117 @@ class Order extends Intangible {
     this.seller = model.seller;
   }
 
-  get acceptedOffer(){ return this.computed.acceptedOffer; }
+  get acceptedOffer(){ return this.model.acceptedOffer; }
   set acceptedOffer(value){
-    this.computed.acceptedOffer = value;
+    this.model.acceptedOffer = value;
   }
 
-  get billingAddress(){ return this.computed.billingAddress; }
+  get billingAddress(){ return this.model.billingAddress; }
   set billingAddress(value){
-    this.computed.billingAddress = value;
+    this.model.billingAddress = value;
   }
 
-  get broker(){ return this.computed.broker; }
+  get broker(){ return this.model.broker; }
   set broker(value){
-    this.computed.broker = value;
+    this.model.broker = value;
   }
 
-  get confirmationNumber(){ return this.computed.confirmationNumber; }
+  get confirmationNumber(){ return this.model.confirmationNumber; }
   set confirmationNumber(value){
-    this.computed.confirmationNumber = value;
+    this.model.confirmationNumber = value;
   }
 
-  get customer(){ return this.computed.customer; }
+  get customer(){ return this.model.customer; }
   set customer(value){
-    this.computed.customer = value;
+    this.model.customer = value;
   }
 
-  get discount(){ return this.computed.discount; }
+  get discount(){ return this.model.discount; }
   set discount(value){
-    this.computed.discount = value;
+    this.model.discount = value;
   }
 
-  get discountCode(){ return this.computed.discountCode; }
+  get discountCode(){ return this.model.discountCode; }
   set discountCode(value){
-    this.computed.discountCode = value;
+    this.model.discountCode = value;
   }
 
-  get discountCurrency(){ return this.computed.discountCurrency; }
+  get discountCurrency(){ return this.model.discountCurrency; }
   set discountCurrency(value){
-    this.computed.discountCurrency = value;
+    this.model.discountCurrency = value;
   }
 
-  get isGift(){ return this.computed.isGift; }
+  get isGift(){ return this.model.isGift; }
   set isGift(value){
-    this.computed.isGift = value;
+    this.model.isGift = value;
   }
 
-  get orderDate(){ return this.computed.orderDate; }
+  get orderDate(){ return this.model.orderDate; }
   set orderDate(value){
-    this.computed.orderDate = value;
+    this.model.orderDate = value;
   }
 
-  get orderDelivery(){ return this.computed.orderDelivery; }
+  get orderDelivery(){ return this.model.orderDelivery; }
   set orderDelivery(value){
-    this.computed.orderDelivery = value;
+    this.model.orderDelivery = value;
   }
 
-  get orderNumber(){ return this.computed.orderNumber; }
+  get orderNumber(){ return this.model.orderNumber; }
   set orderNumber(value){
-    this.computed.orderNumber = value;
+    this.model.orderNumber = value;
   }
 
-  get orderStatus(){ return this.computed.orderStatus; }
+  get orderStatus(){ return this.model.orderStatus; }
   set orderStatus(value){
-    this.computed.orderStatus = value;
+    this.model.orderStatus = value;
   }
 
-  get orderedItem(){ return this.computed.orderedItem; }
+  get orderedItem(){ return this.model.orderedItem; }
   set orderedItem(value){
     if(OrderItem.isEmpty(value)){
-      this.computed.orderedItem = [];
+      this.model.orderedItem = [];
     } else if(OrderItem.isArray(value)){
-      this.computed.orderedItem = [];
+      this.model.orderedItem = [];
       value.forEach((model, index) => {
-        this.computed.orderedItem[index] = new OrderItem(model)
+        this.model.orderedItem[index] = new OrderItem(model)
       })
     } else { console.error('orderedItem must be of type Array') }
   }
 
-  get partOfInvoice(){ return this.computed.partOfInvoice; }
+  get partOfInvoice(){ return this.model.partOfInvoice; }
   set partOfInvoice(value){
-    this.computed.partOfInvoice = value;
+    this.model.partOfInvoice = value;
   }
 
-  get paymentDueDate(){ return this.computed.paymentDueDate; }
+  get paymentDueDate(){ return this.model.paymentDueDate; }
   set paymentDueDate(value){
-    this.computed.paymentDueDate = value;
+    this.model.paymentDueDate = value;
   }
 
-  get paymentMethod(){ return this.computed.paymentMethod; }
+  get paymentMethod(){ return this.model.paymentMethod; }
   set paymentMethod(value){
-    this.computed.paymentMethod = value;
+    this.model.paymentMethod = value;
   }
 
-  get paymentMethodId(){ return this.computed.paymentMethodId; }
+  get paymentMethodId(){ return this.model.paymentMethodId; }
   set paymentMethodId(value){
-    this.computed.paymentMethodId = value;
+    this.model.paymentMethodId = value;
   }
 
-  get paymentUrl(){ return this.computed.paymentURL; }
+  get paymentUrl(){ return this.model.paymentURL; }
   set paymentUrl(value){
-    this.computed.paymentURL = value;
+    this.model.paymentURL = value;
   }
 
-  get paymentURL(){ return this.computed.paymentURL; }
+  get paymentURL(){ return this.model.paymentURL; }
   set paymentURL(value){
-    this.computed.paymentURL = value;
+    this.model.paymentURL = value;
   }
 
 
-  get seller(){ return this.computed.seller; }
+  get seller(){ return this.model.seller; }
   set seller(value){
-    this.computed.seller = value;
+    this.model.seller = value;
   }
 
 }
